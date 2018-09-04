@@ -1,27 +1,32 @@
 package ui;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
-	@FindBy(xpath = "")
+	private WebDriver driver;
+
+	@FindBy(xpath = "//a[@href='#HOTELS']")
 	private WebElement hotelsTab;
 
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//a[@href='#flights']")
 	private WebElement flightsTab;
 
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//a[@href='#TOURS']")
 	private WebElement toursTab;
 
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//a[@href='#CARS']")
 	private WebElement carsTab;
 
-	@FindBy(xpath = "")
+	@FindBy(xpath = "//a[@href='#VISA']")
 	private WebElement visaTab;
 
-	public HomePage() {
-
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
 	}
 
 	public void clickHotelsTab() {
