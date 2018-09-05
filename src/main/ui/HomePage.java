@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
 
+	private static final String HOMEPAGE_URL = "https://www.phptravels.net/";
+	
 	private WebDriver driver;
 
 	@FindBy(xpath = "//a[@href='#HOTELS']")
@@ -29,6 +31,10 @@ public class HomePage {
 		PageFactory.initElements(driver, this);
 	}
 
+	public void navigateTo(){
+		driver.get(HOMEPAGE_URL);
+	}
+	
 	public void clickHotelsTab() {
 		hotelsTab.click();
 	}
