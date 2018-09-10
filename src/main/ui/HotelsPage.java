@@ -44,6 +44,21 @@ public class HotelsPage extends BasePage {
 	@FindBy(xpath = "//button[contains(text(),'Star Grade')]")
 	private WebElement starGradeMenuButton;
 	
+	@FindBy(xpath = "//input[@id='1']//following-sibling::ins")
+	private WebElement oneStarRadioButton;
+	
+	@FindBy(xpath = "//input[@id='2']//following-sibling::ins")
+	private WebElement twoStarRadioButton;
+	
+	@FindBy(xpath = "//input[@id='3']//following-sibling::ins")
+	private WebElement threeStarRadioButton;
+	
+	@FindBy(xpath = "//input[@id='4']//following-sibling::ins")
+	private WebElement fourStarRadioButton;
+	
+	@FindBy(xpath = "//input[@id='5']//following-sibling::ins")
+	private WebElement fiveStarRadioButton;
+	
 	@FindBy(xpath = "//button[contains(text(),'Price Range')]")
 	private WebElement priceRangeMenuButton;
 	
@@ -100,6 +115,26 @@ public class HotelsPage extends BasePage {
 	 */
 	public void clickStarGradeMenuButton() {
 		clickElement(driver, starGradeMenuButton);		
+	}
+	
+	public void selectOneStarRadioButton() {
+		clickElement(driver, oneStarRadioButton);
+	}
+	
+	public void selectTwoStarRadioButton() {
+		clickElement(driver, twoStarRadioButton);
+	}
+	
+	public void selectThreeStarRadioButton() {
+		clickElement(driver, threeStarRadioButton);
+	}
+	
+	public void selectFourStarRadioButton() {
+		clickElement(driver, fourStarRadioButton);
+	}
+	
+	public void selectFiveStarRadioButton() {
+		clickElement(driver, fiveStarRadioButton);
 	}
 	
 	public void clickPriceRangeMenuButton() {
