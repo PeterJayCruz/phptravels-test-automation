@@ -12,11 +12,31 @@ public class HotelsPage extends BasePage {
 
 	private WebDriver driver;
 
+	/*
+	 * Search section elements
+	 */
 	@FindBy(xpath = "//a[@href='#collapseMap']")
 	private WebElement viewMapButton;
 
 	@FindBy(css = "div[class*='search-button']")
 	private WebElement searchButton;
+	
+	@FindBy(id = "travellersInput")
+	private WebElement travellersInputTextbox;
+	
+	@FindBy(id = "adultPlusBtn")
+	private WebElement adultPlusButton;
+	
+	@FindBy(id = "adultMinusBtn")
+	private WebElement adultMinusButton;
+	
+	@FindBy(id = "childPlusBtn")
+	private WebElement childPlusButton;
+	
+	@FindBy(id = "childMinusBtn")
+	private WebElement childMinusButton;
+	
+
 	
 	/*
 	 * Filter section elements
@@ -50,6 +70,26 @@ public class HotelsPage extends BasePage {
 		clickElement(driver, viewMapButton);
 	}
 
+	public void clickTravellersInput() {
+		clickElement(driver, travellersInputTextbox);
+	}
+	
+	public void clickAdultPlusButton() {
+		clickElement(driver, adultPlusButton);
+	}
+	
+	public void clickAdultMinusButton() {
+		clickElement(driver, adultMinusButton);
+	}
+	
+	public void clickChildPlusButton() {
+		clickElement(driver, childPlusButton);
+	}
+	
+	public void clickChildMinusButton() {
+		clickElement(driver, childMinusButton);
+	}
+	
 	public void clickSearchButton() {
 		clickElement(driver, searchButton);
 	}
