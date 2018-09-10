@@ -1,5 +1,7 @@
 package ui;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -7,13 +9,14 @@ import org.openqa.selenium.support.PageFactory;
 
 public class HotelsPage extends BasePage {
 
-
 	private static final String HOTELS_PAGE_URL = "https://www.phptravels.net/hotels";
 
 	private WebDriver driver;
 
 	/*
+	 * *************************
 	 * Search section elements
+	 * *************************
 	 */
 	@FindBy(xpath = "//a[@href='#collapseMap']")
 	private WebElement viewMapButton;
@@ -36,10 +39,10 @@ public class HotelsPage extends BasePage {
 	@FindBy(id = "childMinusBtn")
 	private WebElement childMinusButton;
 	
-
-	
 	/*
+	 * *************************
 	 * Filter section elements
+	 * *************************
 	 */
 	@FindBy(xpath = "//button[contains(text(),'Star Grade')]")
 	private WebElement starGradeMenuButton;
@@ -65,6 +68,9 @@ public class HotelsPage extends BasePage {
 	@FindBy(xpath = "//button[contains(text(),'Property Types')]")
 	private WebElement propertyTypesMenuButton;
 	
+	@FindBy(xpath = "//input[@name='type[]']//following-sibling::ins")
+	private List<WebElement> propertyTypesCheckboxesList;
+	
 	@FindBy(xpath = "//button[contains(text(),'Amenities')]")
 	private WebElement amenitiesMenuButton;
 
@@ -85,6 +91,12 @@ public class HotelsPage extends BasePage {
 		clickElement(driver, viewMapButton);
 	}
 
+	
+	/*
+	 * *************************
+	 * Search section methods
+	 * *************************
+	 */
 	public void clickTravellersInput() {
 		clickElement(driver, travellersInputTextbox);
 	}
@@ -111,7 +123,9 @@ public class HotelsPage extends BasePage {
 	
 	
 	/*
+	 * *************************
 	 * Filter section methods
+	 * *************************
 	 */
 	public void clickStarGradeMenuButton() {
 		clickElement(driver, starGradeMenuButton);		
@@ -145,6 +159,12 @@ public class HotelsPage extends BasePage {
 		clickElement(driver, propertyTypesMenuButton);
 	}
 
+	public void selectPropertyTypes(List<PropertyTypes> propertyTypes) {
+		for(PropertyTypes type: propertyTypes) {
+			clickElement(driver, propertyTypesCheckboxesList.get(type.getIndex()));
+		}
+	}
+	
 	public void clickAmenitiesMenuButton() {
 		clickElement(driver, amenitiesMenuButton);
 	}
