@@ -13,16 +13,32 @@ public class HotelsPage extends BasePage {
 
 	private WebDriver driver;
 
+	@FindBy(xpath = "//a[@href='#collapseMap']")
+	private WebElement viewMapButton;
+	
 	/*
 	 * *************************
 	 * Search section elements
 	 * *************************
 	 */
-	@FindBy(xpath = "//a[@href='#collapseMap']")
-	private WebElement viewMapButton;
-
-	@FindBy(css = "div[class*='search-button']")
-	private WebElement searchButton;
+	
+	@FindBy(xpath ="//div[@class='datepicker dropdown-menu'][position()=1]//td[contains(@class,'day')]")
+	private List<WebElement> checkInDatePickerDays;
+	
+	@FindBy(xpath = "//div[@class='datepicker dropdown-menu'][position()=1]//span[contains(@class,'month')]")
+	private List<WebElement> checkInDatePickerMonths;
+	
+	@FindBy(xpath = "//div[@class='datepicker dropdown-menu'][position()=1]//span[contains(@class,'year')]")
+	private List<WebElement> checkInDatePickerYears;
+	
+	@FindBy(xpath = "//div[@class='datepicker dropdown-menu'][position()=2]//td[contains(@class,'day')]")
+	private List<WebElement> checkOutDatePickerDays;
+	
+	@FindBy(xpath = "//div[@class='datepicker dropdown-menu'][position()=2]//span[contains(@class,'month')]")
+	private List<WebElement> checkOutDatePickerMonths;
+	
+	@FindBy(xpath = "//div[@class='datepicker dropdown-menu'][position()=2]//span[contains(@class,'year')]")
+	private List<WebElement> checkOutDatePickerYears;
 	
 	@FindBy(id = "travellersInput")
 	private WebElement travellersInputTextbox;
@@ -38,6 +54,9 @@ public class HotelsPage extends BasePage {
 	
 	@FindBy(id = "childMinusBtn")
 	private WebElement childMinusButton;
+	
+	@FindBy(css = "div[class*='search-button']")
+	private WebElement searchButton;
 	
 	/*
 	 * *************************
