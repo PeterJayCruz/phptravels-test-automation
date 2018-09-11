@@ -47,20 +47,8 @@ public class HotelsPage extends BasePage {
 	@FindBy(xpath = "//button[contains(text(),'Star Grade')]")
 	private WebElement starGradeMenuButton;
 	
-	@FindBy(xpath = "//input[@id='1']//following-sibling::ins")
-	private WebElement oneStarRadioButton;
-	
-	@FindBy(xpath = "//input[@id='2']//following-sibling::ins")
-	private WebElement twoStarRadioButton;
-	
-	@FindBy(xpath = "//input[@id='3']//following-sibling::ins")
-	private WebElement threeStarRadioButton;
-	
-	@FindBy(xpath = "//input[@id='4']//following-sibling::ins")
-	private WebElement fourStarRadioButton;
-	
-	@FindBy(xpath = "//input[@id='5']//following-sibling::ins")
-	private WebElement fiveStarRadioButton;
+	@FindBy(xpath = "//input[@name='stars']//following-sibling::ins")
+	private List<WebElement> starGradeRadioButtonsList;
 	
 	@FindBy(xpath = "//button[contains(text(),'Price Range')]")
 	private WebElement priceRangeMenuButton;
@@ -74,6 +62,9 @@ public class HotelsPage extends BasePage {
 	@FindBy(xpath = "//button[contains(text(),'Amenities')]")
 	private WebElement amenitiesMenuButton;
 
+	@FindBy(xpath = "//input[@name='amenities[]']//following-sibling::ins")
+	private List<WebElement> amenitiesCheckboxesList;
+	
 	@FindBy(id = "searchform")
 	private WebElement filterSearchButton;
 	
@@ -131,24 +122,8 @@ public class HotelsPage extends BasePage {
 		clickElement(driver, starGradeMenuButton);		
 	}
 	
-	public void selectOneStarRadioButton() {
-		clickElement(driver, oneStarRadioButton);
-	}
-	
-	public void selectTwoStarRadioButton() {
-		clickElement(driver, twoStarRadioButton);
-	}
-	
-	public void selectThreeStarRadioButton() {
-		clickElement(driver, threeStarRadioButton);
-	}
-	
-	public void selectFourStarRadioButton() {
-		clickElement(driver, fourStarRadioButton);
-	}
-	
-	public void selectFiveStarRadioButton() {
-		clickElement(driver, fiveStarRadioButton);
+	public void selectStarGrade(StarGrades starGrade) {
+		clickElement(driver, starGradeRadioButtonsList.get(starGrade.getIndex()));
 	}
 	
 	public void clickPriceRangeMenuButton() {
@@ -160,13 +135,19 @@ public class HotelsPage extends BasePage {
 	}
 
 	public void selectPropertyTypes(List<PropertyTypes> propertyTypes) {
-		for(PropertyTypes type: propertyTypes) {
-			clickElement(driver, propertyTypesCheckboxesList.get(type.getIndex()));
+		for(PropertyTypes propertyType : propertyTypes) {
+			clickElement(driver, propertyTypesCheckboxesList.get(propertyType.getIndex()));
 		}
 	}
 	
 	public void clickAmenitiesMenuButton() {
 		clickElement(driver, amenitiesMenuButton);
+	}
+	
+	public void selectAmenities(List<Amenities> amenities) {
+		for(Amenities amenity : amenities) {
+			clickElement(driver, amenitiesCheckboxesList.get(amenity.getIndex()));
+		}
 	}
 	
 	public void clickFilterSearchButton() {
