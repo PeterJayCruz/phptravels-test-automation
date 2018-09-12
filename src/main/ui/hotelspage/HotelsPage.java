@@ -97,9 +97,10 @@ public class HotelsPage extends BasePage {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-
-	public void navigateTo() {
+	
+	public HotelsPage navigateTo() {
 		driver.get(HOTELS_PAGE_URL);
+		return this;
 	}
 
 	public void clickViewMapButton() {
