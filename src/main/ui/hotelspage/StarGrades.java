@@ -1,4 +1,4 @@
-package ui;
+package ui.hotelspage;
 
 public enum StarGrades {
 
