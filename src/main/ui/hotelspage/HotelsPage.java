@@ -154,6 +154,12 @@ public class HotelsPage extends BasePage {
 		clickElement(driver, starGradeRadioButtonsList.get(starGrade.getIndex()));
 	}
 	
+	public HotelsPage filterResultsByStarGrade(StarGrades starGrade) {
+		clickElement(driver, starGradeRadioButtonsList.get(starGrade.getIndex()));
+		clickElement(driver, filterSearchButton);
+		return this;
+	}
+	
 	public void clickPriceRangeMenuButton() {
 		clickElement(driver, priceRangeMenuButton);
 	}
