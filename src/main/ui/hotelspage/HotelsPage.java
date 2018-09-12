@@ -1,4 +1,4 @@
-package ui;
+package ui.hotelspage;
 
 import java.util.List;
 
@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+
+import ui.BasePage;
 
 public class HotelsPage extends BasePage {
 
@@ -21,6 +23,9 @@ public class HotelsPage extends BasePage {
 	 * Search section elements
 	 * *************************
 	 */
+	
+	@FindBy(xpath = "//div[@class='select2-search']")
+	private WebElement destinationTextBox;
 	
 	@FindBy(xpath ="//div[@class='datepicker dropdown-menu'][position()=1]//td[contains(@class,'day')]")
 	private List<WebElement> checkInDatePickerDays;
@@ -107,6 +112,10 @@ public class HotelsPage extends BasePage {
 	 * Search section methods
 	 * *************************
 	 */
+	public void enterDestination(String destination) {
+		
+	}
+	
 	public void clickTravellersInput() {
 		clickElement(driver, travellersInputTextbox);
 	}
