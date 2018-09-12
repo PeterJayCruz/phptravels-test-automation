@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class HomePage {
+public class HomePage extends BasePage {
 
 	private static final String HOMEPAGE_URL = "https://www.phptravels.net/";
 	
