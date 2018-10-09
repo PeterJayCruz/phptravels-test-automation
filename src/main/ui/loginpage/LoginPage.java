@@ -1,10 +1,11 @@
-package ui;
+package ui.loginpage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import ui.BasePage;
 import ui.accountpage.AccountPage;
 
 public class LoginPage extends BasePage {
