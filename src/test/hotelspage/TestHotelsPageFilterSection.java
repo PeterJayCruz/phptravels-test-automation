@@ -12,7 +12,7 @@ import ui.hotelspage.StarGrades;
 public class TestHotelsPageFilterSection extends SetupTest {
 
 	@Test(dataProviderClass = HotelsPageDataProvider.class, dataProvider = "starGrades")
-	public void testStarGradesFilter(StarGrades starGrade) throws InterruptedException {
+	public void testStarGradesFilter(StarGrades starGrade) {
 		System.out.println("testing filtering by " + starGrade.getValue() + " stars...");
 		HotelsPage hotelsPage = new HotelsPage(getDriver()).navigateTo();
 
